@@ -1,0 +1,77 @@
+.post {
+    border: 1px solid rgb(105,105,105);
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+    -webkit-box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.post p {
+    margin: 10px 0 15px;
+    font-size: 18px;
+    word-break: break-all;
+    white-space: normal;
+}
+
+.post__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.post__like {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.post__button {
+    background-color: #d1d1d1;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    animation: pulseAnimation 2s infinite;
+    &:hover {
+        background-color: rgb(255, 199, 220);
+    }
+}
+
+
+.post__emoji {
+    font-size: 24px;
+}
+
+.post__likes {
+    
+}
+
+.post__time {
+    color: gray;
+}
+
+@media screen and (min-width: 675px) {
+    .post {
+        width: 100%;
+    }
+}
+
+@keyframes pulseAnimation {
+    0% {
+        transform: scale(1)
+    }
+    50% {
+        transform: scale(1.1)
+    }
+    100% {
+        transform: scale(1)
+    }
+  }

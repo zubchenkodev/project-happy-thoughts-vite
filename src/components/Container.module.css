@@ -1,0 +1,15 @@
+.container {
+    margin: 20px auto;
+    padding: 5px 35px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+@media screen and (min-width: 675px) {
+    .container {
+        width: 60%;
+    }
+}
