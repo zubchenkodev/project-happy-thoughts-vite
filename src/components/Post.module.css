@@ -7,7 +7,7 @@
     padding: 20px;
     box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
     -webkit-box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
-    animation: appear 3s ease-in-out forwards;
+    animation: appear 1s ease-in-out forwards;
 }
 
 
