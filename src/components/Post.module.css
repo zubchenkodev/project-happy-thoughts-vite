@@ -7,7 +7,9 @@
     padding: 20px;
     box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
     -webkit-box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+    animation: appear 3s ease-in-out forwards;
 }
+
 
 .post p {
     margin: 10px 0 15px;
@@ -45,24 +47,18 @@
     }
 }
 
+.post__buttonLiked {
+    background-color: #ee8bb4;
+}
 
 .post__emoji {
     font-size: 24px;
-}
-
-.post__likes {
-    
 }
 
 .post__time {
     color: gray;
 }
 
-@media screen and (min-width: 675px) {
-    .post {
-        width: 100%;
-    }
-}
 
 @keyframes pulseAnimation {
     0% {
@@ -75,3 +71,15 @@
         transform: scale(1)
     }
   }
+
+@keyframes appear {
+    0% {
+      opacity: 0;
+    }
+    50% {
+        opacity: .5;
+    }
+    100% {
+      opacity: 1;
+    }
+}

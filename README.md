@@ -1,35 +1,26 @@
-<h1 align="center">
-  <a href="">
-    <img src="/src/assets/happy-thoughts.svg" alt="Project Banner Image">
-  </a>
-</h1>
+⭐️ Stretch Goals ⭐️
 
-# Unhappy thoughts Project
+1. Page should follow the design as closely as possible ✅
+2. The most recent thoughts at the top and older thoughts at the bottom (sorted) ✅
+3. Thoughts should show the content of the message and how many likes they've received ✅
+4. Form to post new thoughts ✅
+5. The heart button to send likes on a thought ✅
+6. Adapted to the different viewports ✅
 
-In this week's project, you'll be able to practice your React state skills by fetching and posting data to an API.
+⭐️ Intermediate Stretch Goals ⭐️
 
-## Getting Started with the Project
+1. Show a count below the form input that updates as the user types and shows how many characters are remaining. Make it go red when the user has typed over 140 characters ✅
 
-### Dependency Installation & Startup Development Server
+2. When POSTing a new thought, if the message was empty, too long, or too short, you get an error message back from the API. Use this to set some sort of `error` state to show a friendly message to your user:
 
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
+❌ For very short or empty thought it is made. The situation with very long thought is handled not during the submitting the form, but during the typing in the textarea ( and submitting of form is blocked, if thought is too long)
 
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
+⭐️ Advanced Stretch Goals ⭐️
 
-```bash
-npm i && code . && npm run dev
-```
+1. Keep count of how many different posts you have liked (different from how many times a post has been liked). Keep count and display it in some way. You could even go as far as to store this number in localStorage so that when the page is reloaded, the initial state can be set from the number you've stored ✅
 
-### The Problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
 ### View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
 
-## Instructions
-
-<a href="instructions.md">
-   See instructions of this project
-  </a>

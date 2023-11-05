@@ -9,19 +9,23 @@ export const App = () => {
 
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState('');
   const [newPost, setNewPost] = useState('');
   const [message, setMessage] = useState('');
+  const [postsLikedByUser, setPostsLikedByUser] = useState(() => {
+    const storedIds = JSON.parse(localStorage.getItem('postsLikedByUser'))
+    return storedIds || []
+  });
   
 
   const fetchPosts = async () => {
     try {
+        setError('');
         const res = await fetch('https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts');
         const data = await res.json();
         if(!res.ok){
           throw new Error('💥 Something went wrong 😱')
         }
-        console.log(data);
         setPosts(data);
     }
     catch(err){
@@ -32,7 +36,6 @@ export const App = () => {
       setIsLoading(false)
     }
   }
-
 
   useEffect(() => {
     fetchPosts();
@@ -51,14 +54,7 @@ export const App = () => {
 
   const onFormSubmit = async (event) => {
 
-    event.preventDefault();
-
-    if (newPost.length < 6) {
-      setMessage('Your message is too short, it needs at least 5 letters 😔');
-      return;
-    } else {
-      setMessage('');
-    } 
+    event.preventDefault(); 
 
     const options = {
       method: "POST",
@@ -71,22 +67,31 @@ export const App = () => {
     };
     try {
       const response = await fetch('https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts', options);
-      if (response.ok) {
-        await fetchPosts();
+      if (!newPost) {
+        throw new Error('You need to add the text to post your thought 🤓')
       }
+      if (newPost.length < 6) {
+        throw new Error('Your message is too short, it needs at least 5 letters 🥸')
+      }
+      if(!response.ok) throw new Error('Something went wrong 😔');
+      fetchPosts();
     } catch (error) {
-      console.error(error);
+      console.error(`The problem is: ${error.message}`);
+      setMessage(error.message)
     } finally {
       setNewPost("");
     }
   }
 
+  
+
   return (
     <Container>
-      <Header/>
+      <Header postsLikedByUser={postsLikedByUser}/>
       <Form onNewPostChange={handleNewPostChange} onFormSubmit={onFormSubmit} message={message} newPost={newPost}/>
-      {isLoading && <Loader/>}
-      <Posts posts={posts}/>
+      <Posts posts={posts} postsLikedByUser={postsLikedByUser} setPostsLikedByUser={setPostsLikedByUser} isLoading={isLoading}
+      error={error} 
+      />
     </Container>
   )
 };

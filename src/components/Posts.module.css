@@ -8,7 +8,14 @@
     gap: 25px;
 }
 
-@media screen and (min-width: 675px) {
+
+@media screen and (min-width: 480px) {
+    .posts {
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 992px) {
     .posts {
         width: 70%;
     }
